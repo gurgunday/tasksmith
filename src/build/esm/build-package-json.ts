@@ -53,7 +53,8 @@ async function buildPackageExports(baseUri: string): Promise<PackageEntryAndExpo
     const submoduleBase = isRoot ? '' : `${filePath.replace(/\/index\.ts$/, '')}`
     const esmDir = submoduleBase ? `./${Folder}/${submoduleBase}` : `./${Folder}`
     exports[submoduleSection] = {
-      import: `${esmDir}/index.mjs`
+      import: `${esmDir}/index.mjs`,
+      default: `${esmDir}/index.mjs`
     }
   }
   return {
